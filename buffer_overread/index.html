@@ -1,0 +1,28 @@
+<html>
+<body>
+<h1>Buffer Overflow</h1>
+<label>Start Position</label>
+<input id="start">
+<br><br>
+<label>End Position</label>
+<input id="end">
+<br><br>
+<button id="check-auth">Submit</button>
+<p id="answer"></p>
+
+
+<script src="test.js"></script>
+<script>
+    document.getElementById('start').innerHTML = 256;
+    document.getElementById('end').innerHTML = 266;
+    Module.onRuntimeInitialized = function() {
+        document.getElementById('check-auth').onclick = function() {
+            var start = document.getElementById('start').value;
+            var end = document.getElementById('end').value;
+            _testing(start,end);
+        }
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,22 @@
+<html>
+<body>
+<h1>XSS</h1>
+<label>Input string</label>
+<input id="payload" size="100">
+<br><br>
+<button id="submit">Submit</button>
+<p id="XSS"></p>
+
+<script src="bof.js"></script>
+<script>
+     Module.onRuntimeInitialized = function() {
+         document.getElementById('submit').onclick = function() {
+             var str = document.getElementById('payload').value;
+             var bof = Module.cwrap('bof', null, ['string', 'string']);
+             bof("static string", str);
+         }
+    }
+</script>
+
+</body>
+</html>

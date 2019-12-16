@@ -1,0 +1,25 @@
+<html>
+	<head>
+		<title> </title>
+	</head>
+	<body>
+		<h1>Integer Overflow</h1>
+		<p>
+			Here I try to multiply two numbers using C++ code compiled to Wasm.
+		</p>
+		<p>
+			'int' datatype in C++ is 32 bits, can hold values upto ~ 4 billion.
+			If we try to multiple 4 billion by 2, we get an overflow.
+		</p>
+
+		<label>Num 1</label>
+		<input id="num1">
+		<label>Num 2</label>
+		<input id="num2">
+		<button id="product" onclick="wasmProduct()">Multiply</button>
+		<br>
+		<p id="answer"></p>
+
+		<script type="text/javascript" src="wa.js"></script>
+	</body>
+</html>
